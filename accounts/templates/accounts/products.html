@@ -1,0 +1,39 @@
+{% extends "accounts/main.html" %}
+
+
+{% block content%}
+<style>
+  .create-product-button{
+    width:300px;
+    padding:5px;
+  }
+</style>
+<br>
+<div class="row">
+      <div class="col-md">
+        <div class="card card-body">
+          <h5>Products</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+              <tr>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Price</th>
+              </tr>
+
+              {% for i in products %}
+                  <tr>
+                      <td>{{i.name}}</td>
+                      <td>{{i.category}}</td>
+                      <td>{{i.price}}</td>
+                  </tr>
+              {% endfor %}
+            </table>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center"><a class="create-product-button btn btn-primary btn-lg" href="{% url 'create_product' %}" class="ml-2">Create Product</a></div>
+      </div>
+</div>
+</br>
+{% endblock content%}
